@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <script>
+    // create a function that will randomly return either 'Rock', 'Paper' or 'Scissors'
+    // to make computer play
+
+    function computerPlay() {
+        const choices = ['Rock', 'Paper', 'Scissors']
+        // get random index in array
+        const index = Math.floor(Math.random() * choices.length)
+        // use index to return choice from array
+        return choices[index]
+    }
+
+    //Write a function that plays a single round of Rock Paper Scissors
+    // Shoukld take two parameters, playerSelection and computerSelection
+    // return a string that declares the winner of the round 
+
+    function playRound(playerSelection, computerSelection) {
+        const playerChoice = playerSelection[0].toUpperCase() + playerSelection.substr(1); 
+        
+        switch (true) {
+            case (playerChoice === 'Rock' && computerSelection === 'Rock'):
+                return ("It's a tie, you both chose Rock!");
+                break;
+            case (playerChoice === 'Scissors' && computerSelection === 'Rock'):
+                return ("You lose! Rock beats Scissors!");
+                break;
+            case (playerChoice === 'Paper' && computerSelection === 'Rock'):
+                return ("You win! Paper beats Scissors!");
+                break;
+            case playerChoice === 'Paper' && computerSelection === 'Paper':
+                return ("It's a tie, you both chose Paper!");
+                break;
+            case playerChoice === 'Rock' && computerSelection === 'Paper':
+                return ("You lose! Paper beats Rock!");
+                break;
+            case playerChoice === 'Scissors' && computerSelection === 'Paper':
+                return ("You win! Scissors beats Paper!");
+                break;
+            case playerChoice === 'Scissors' && computerSelection === 'Scissors':
+                return ("It's a tie, you both chose Scissors!");
+                break;
+            case playerChoice === 'Paper' && computerSelection === 'Scissors':
+                return ("You lose! Scissors beats Paper!");
+                break;
+            case playerChoice === 'Rock' && computerSelection === 'Scissors':
+                return ("You win! Rock beats Scissors!");
+                break; 
+            default: 
+                return 'You didnt enter a valid choice';
+    }
+    }
+
+
+    let playerSelection = prompt('Rock, Paper or Scissors?');
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection))
+
+    
+// Use previous function inside of this one to paly a 5 round game that keeps score and reports
+// a winner or loser to win
+    function game() {
+       
+    }
+    </script>
+
+</body>
+</html>
